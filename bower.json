@@ -1,0 +1,21 @@
+{
+  "name": "grix",
+  "description": "A basic flexbox-based grid",
+  "main": "dist/grix.css",
+  "authors": [
+    "websperts <hello@websperts.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "grix",
+    "grid"
+  ],
+  "homepage": "https://github.com/websperts/grix",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

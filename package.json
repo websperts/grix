@@ -1,0 +1,40 @@
+{
+  "name": "grix",
+  "version": "0.0.1",
+  "description": "A basic flexbox-based grid",
+  "main": "dist/grix.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/websperts/grix.git"
+  },
+  "keywords": [
+    "grix",
+    "grid"
+  ],
+  "author": "websperts <hello@websperts.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/websperts/grix/issues"
+  },
+  "homepage": "https://github.com/websperts/grix",
+  "devDependencies": {
+    "autoprefixer-cli": "^1.0.0",
+    "copy": "^0.3.0",
+    "cssnano-cli": "^1.0.5",
+    "html-minifier": "^3.1.0",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^3.9.3",
+    "prepend-file-cli": "^1.0.4",
+    "pug-cli": "^1.0.0-alpha6",
+    "rimraf": "^2.5.4",
+    "sass-lint": "^1.9.1"
+  },
+  "scripts": {
+    "clean": "rimraf dist docs tmp && mkdirp dist docs tmp",
+    "css": "node-sass src/grix.scss | autoprefixer-cli | cssnano > dist/grix.css && prepend dist/grix.css \"/*! Grix v$npm_package_version */\"",
+    "docs": "pug -p src/docs.pug < src/docs.pug > tmp/index.html && html-minifier --collapse-whitespace --remove-attribute-quotes tmp/index.html > docs/index.html",
+    "lint": "sass-lint -c .sass-lint.yml -v --max-warnings 0 'src/**/*.scss'",
+    "build": "npm run lint && npm run clean && npm run css && npm run docs && copy dist/**/* docs/",
+    "test": "npm run build"
+  }
+}

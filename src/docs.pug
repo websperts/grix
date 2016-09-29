@@ -1,0 +1,27 @@
+doctype html
+html
+
+  head
+    meta(charset='utf-8')
+    title Demo for Grix, a basic flexbox-based grid by websperts
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0')
+    link(rel='stylesheet', href='grix.css')
+
+  body
+
+    h1 Grix Demo
+
+    each pixels, breakpoint in { 'tiny': 480, 'small': 600, 'medium': 768, 'large': 900, 'huge': 1200 }
+
+      h2 .grix-#{breakpoint} (switches to columns at a viewport width of #{pixels}+)
+
+      div(class='grix-' + breakpoint)
+        each color, i in ['red', 'blue', 'green', 'yellow']
+          div(style={ 'background': color }) #{i + 1}
+
+      div(class='grix-' + breakpoint)
+        each color, i in ['red', 'blue']
+          div(style={ 'background': color }) #{i + 1}
+
+      div(class='grix-' + breakpoint)
+        div(style={ 'background': 'red' }) 1

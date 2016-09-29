@@ -1,0 +1,120 @@
+@import 'variables';
+
+@mixin grix-collection {
+
+  display: flex;
+  flex-direction: column;
+
+  & ~ & {
+    margin-top: $grix-space;
+  }
+
+  > * {
+
+    flex: 1 1 auto;
+    width: 100%;
+
+    ~ * {
+      margin-top: $grix-space;
+    }
+
+  }
+
+}
+
+@mixin grix-collection-row {
+
+  flex-direction: row;
+
+  @content;
+
+  > * {
+
+    ~ * {
+      margin-top: 0;
+      margin-left: $grix-space;
+    }
+
+  }
+
+}
+
+@mixin grix-collection-tiny {
+
+  @include grix-collection;
+
+  @include grix-respond-tiny {
+    @include grix-collection-row;
+  }
+
+}
+
+@mixin grix-collection-small {
+
+  @include grix-collection;
+
+  @include grix-respond-small {
+    @include grix-collection-row;
+  }
+
+}
+
+@mixin grix-collection-medium {
+
+  @include grix-collection;
+
+  @include grix-respond-medium {
+    @include grix-collection-row;
+  }
+
+}
+
+@mixin grix-collection-large {
+
+  @include grix-collection;
+
+  @include grix-respond-large {
+    @include grix-collection-row;
+  }
+
+}
+
+@mixin grix-collection-huge {
+
+  @include grix-collection;
+
+  @include grix-respond-huge {
+    @include grix-collection-row;
+  }
+
+}
+
+@mixin grix-respond-tiny {
+  @media screen and (min-width: $grix-breakpoint-tiny) {
+    @content;
+  }
+}
+
+@mixin grix-respond-small {
+  @media screen and (min-width: $grix-breakpoint-small) {
+    @content;
+  }
+}
+
+@mixin grix-respond-medium {
+  @media screen and (min-width: $grix-breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin grix-respond-large {
+  @media screen and (min-width: $grix-breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin grix-respond-huge {
+  @media screen and (min-width: $grix-breakpoint-huge) {
+    @content;
+  }
+}

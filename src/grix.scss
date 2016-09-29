@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'mixins';
+
+.grix-tiny {
+  @include grix-collection-tiny;
+}
+
+.grix-small {
+  @include grix-collection-small;
+}
+
+.grix-medium {
+  @include grix-collection-medium;
+}
+
+.grix-large {
+  @include grix-collection-large;
+}
+
+.grix-huge {
+  @include grix-collection-huge;
+}
